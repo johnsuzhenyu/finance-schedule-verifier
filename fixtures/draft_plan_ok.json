@@ -1,0 +1,9 @@
+{
+  "plan_version": "1",
+  "client_id": "DEMO-PTE-LTD",
+  "types": [
+    {"type": "Assets · Deposits", "source": "bs", "evidence": "BS line: Deposits 12,340.00 as at FYE", "status": "confirmed"},
+    {"type": "Liabilities · Accruals", "source": "historical_ma", "evidence": "Prior MA FY2024 contains an Accruals block", "status": "confirmed"},
+    {"type": "Liabilities · GST", "source": "gl_supplement", "evidence": "GL account 2100-GST movement 3,120.00", "status": "recommended"}
+  ]
+}

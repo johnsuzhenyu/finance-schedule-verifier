@@ -1,0 +1,10 @@
+{
+  "plan_version": "1",
+  "client_id": "DEMO-PTE-LTD",
+  "types": [
+    {"type": "Assets · Crypto Holdings", "source": "bs", "evidence": "wallet balance 1.0 BTC", "status": "confirmed"},
+    {"type": "Liabilities · GST", "source": "excel", "evidence": "seen", "status": "done"},
+    {"type": "Liabilities · Accruals", "source": "historical_ma", "evidence": "prior MA block", "status": "blocked"},
+    {"type": "Liabilities · Accruals", "source": "hsitorical_ma", "evidence": "duplicate entry test", "status": "confirmed"}
+  ]
+}
