@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="600" viewBox="0 0 1280 600" role="img" aria-label="finance-schedule-verifier module architecture: four acyclic dependency layers">
+  <title>finance-schedule-verifier — module dependency layers</title>
+  <desc>Four acyclic layers. L3 orchestration: cli.py and __main__.py. L2 composite checkers: plan.py (E0), prewrite.py (E1). L1 leaf checkers: source.py (E2), identity.py (E3), integrity.py (E5), copycheck.py (E1b), vocabulary.py. L0 primitives: cells.py, io_compat.py, gate.py (E4, zero imports).</desc>
+
+  <rect width="1280" height="600" fill="#ffffff"/>
+
+  <!-- ── header ─────────────────────────────────────────────── -->
+  <text x="60" y="50" font-size="27" font-weight="700" fill="#0A2240"
+        font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif">finance-schedule-verifier</text>
+  <text x="60" y="78" font-size="13.5" fill="#64748b"
+        font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif">Module dependency layers &#8212; four layers, no cycles. &#8220;The LLM declares. Python verifies.&#8221;</text>
+
+  <!-- ── L3 orchestration ───────────────────────────────────── -->
+  <rect x="60" y="104" width="1160" height="80" rx="14" fill="#f7fafc" stroke="#e2e8f0"/>
+  <text x="84" y="130" font-size="10.5" font-weight="700" letter-spacing="1.2" fill="#94a3b8"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">L3 &#183; ORCHESTRATION</text>
+  <text x="84" y="147" font-size="10" fill="#b0bcc9"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">cli.py is the only</text>
+  <text x="84" y="162" font-size="10" fill="#b0bcc9"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">module that knows</text>
+  <text x="84" y="177" font-size="10" fill="#b0bcc9"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">every checker</text>
+
+  <rect x="260" y="118" width="520" height="52" rx="10" fill="#0A2240"/>
+  <text x="282" y="143" font-size="15" font-weight="700" fill="#ffffff"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">cli.py</text>
+  <text x="282" y="160" font-size="11" fill="#9fc0d8"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">argparse &#183; 7 subcommands &#183; exit-code contract (0 pass / 1 fail)</text>
+
+  <rect x="810" y="118" width="260" height="52" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="832" y="143" font-size="14.5" font-weight="700" fill="#0A2240"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">__main__.py</text>
+  <text x="832" y="160" font-size="11" fill="#64748b"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">entry point &#8594; cli.main()</text>
+
+  <!-- arrow L3 -> L2 -->
+  <line x1="148" y1="190" x2="148" y2="199" stroke="#cbd5e1" stroke-width="2"/>
+  <polygon points="142,199 154,199 148,208" fill="#cbd5e1"/>
+
+  <!-- ── L2 composite checkers ──────────────────────────────── -->
+  <rect x="60" y="210" width="1160" height="80" rx="14" fill="#f7fafc" stroke="#e2e8f0"/>
+  <text x="84" y="236" font-size="10.5" font-weight="700" letter-spacing="1.2" fill="#94a3b8"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">L2 &#183; COMPOSITE</text>
+  <text x="84" y="253" font-size="10.5" font-weight="700" letter-spacing="1.2" fill="#94a3b8"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">CHECKERS</text>
+  <text x="84" y="271" font-size="10" fill="#b0bcc9"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">run before</text>
+  <text x="84" y="285" font-size="10" fill="#b0bcc9"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">generation / write</text>
+
+  <rect x="260" y="224" width="440" height="52" rx="10" fill="#eaf3fa" stroke="#9ccbe6"/>
+  <text x="282" y="249" font-size="14.5" font-weight="700" fill="#0A2240"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">plan.py</text>
+  <text x="282" y="266" font-size="11" fill="#4a6478"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">E0 &#183; validate_plan &#8594; vocabulary</text>
+
+  <rect x="720" y="224" width="440" height="52" rx="10" fill="#eaf3fa" stroke="#9ccbe6"/>
+  <text x="742" y="249" font-size="14.5" font-weight="700" fill="#0A2240"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">prewrite.py</text>
+  <text x="742" y="266" font-size="11" fill="#4a6478"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">E1 &#183; pre_write_validate &#8594; cells, io_compat, vocabulary</text>
+
+  <!-- arrow L2 -> L1 -->
+  <line x1="148" y1="296" x2="148" y2="305" stroke="#cbd5e1" stroke-width="2"/>
+  <polygon points="142,305 154,305 148,314" fill="#cbd5e1"/>
+
+  <!-- ── L1 leaf checkers ───────────────────────────────────── -->
+  <rect x="60" y="316" width="1160" height="80" rx="14" fill="#f7fafc" stroke="#e2e8f0"/>
+  <text x="84" y="342" font-size="10.5" font-weight="700" letter-spacing="1.2" fill="#94a3b8"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">L1 &#183; LEAF CHECKERS</text>
+  <text x="84" y="359" font-size="10" fill="#b0bcc9"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">one checker per</text>
+  <text x="84" y="373" font-size="10" fill="#b0bcc9"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">module &#8212; checkers</text>
+  <text x="84" y="387" font-size="10" fill="#b0bcc9"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">never call each other</text>
+
+  <rect x="260" y="330" width="183" height="52" rx="10" fill="#ffffff" stroke="#9ccbe6"/>
+  <text x="278" y="355" font-size="13.5" font-weight="700" fill="#0A2240"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">source.py</text>
+  <text x="278" y="371" font-size="10.5" fill="#4a6478"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">E2 &#183; availability</text>
+
+  <rect x="454" y="330" width="183" height="52" rx="10" fill="#ffffff" stroke="#9ccbe6"/>
+  <text x="472" y="355" font-size="13.5" font-weight="700" fill="#0A2240"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">identity.py</text>
+  <text x="472" y="371" font-size="10.5" fill="#4a6478"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">E3 &#183; client identity</text>
+
+  <rect x="648" y="330" width="183" height="52" rx="10" fill="#ffffff" stroke="#9ccbe6"/>
+  <text x="666" y="355" font-size="13.5" font-weight="700" fill="#0A2240"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">integrity.py</text>
+  <text x="666" y="371" font-size="10.5" fill="#4a6478"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">E5 &#183; MA integrity</text>
+
+  <rect x="842" y="330" width="183" height="52" rx="10" fill="#ffffff" stroke="#9ccbe6"/>
+  <text x="860" y="355" font-size="13.5" font-weight="700" fill="#0A2240"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">copycheck.py</text>
+  <text x="860" y="371" font-size="10.5" fill="#4a6478"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">E1b &#183; anti-copy</text>
+
+  <rect x="1036" y="330" width="183" height="52" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="1054" y="355" font-size="13.5" font-weight="700" fill="#0A2240"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">vocabulary.py</text>
+  <text x="1054" y="371" font-size="10.5" fill="#64748b"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">22-type whitelist</text>
+
+  <!-- arrow L1 -> L0 -->
+  <line x1="148" y1="402" x2="148" y2="411" stroke="#cbd5e1" stroke-width="2"/>
+  <polygon points="142,411 154,411 148,420" fill="#cbd5e1"/>
+
+  <!-- ── L0 primitives ──────────────────────────────────────── -->
+  <rect x="60" y="422" width="1160" height="80" rx="14" fill="#f7fafc" stroke="#e2e8f0"/>
+  <text x="84" y="448" font-size="10.5" font-weight="700" letter-spacing="1.2" fill="#94a3b8"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">L0 &#183; PRIMITIVES</text>
+  <text x="84" y="465" font-size="10" fill="#b0bcc9"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">no checker logic</text>
+  <text x="84" y="479" font-size="10" fill="#b0bcc9"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">in this layer</text>
+
+  <rect x="260" y="436" width="310" height="52" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="282" y="461" font-size="13.5" font-weight="700" fill="#0A2240"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">cells.py</text>
+  <text x="282" y="477" font-size="10.5" fill="#64748b"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">cell normalisation &#183; pure functions</text>
+
+  <rect x="584" y="436" width="310" height="52" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="606" y="461" font-size="13.5" font-weight="700" fill="#0A2240"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">io_compat.py</text>
+  <text x="606" y="477" font-size="10.5" fill="#64748b"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">openpyxl / json IO &#183; report printer</text>
+
+  <rect x="908" y="436" width="310" height="52" rx="10" fill="#fff7ed" stroke="#e8c88a"/>
+  <text x="930" y="461" font-size="13.5" font-weight="700" fill="#7a4a06"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">gate.py</text>
+  <text x="930" y="477" font-size="10.5" fill="#8a6520"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">E4 &#183; upload gate &#8212; zero imports, fail-closed</text>
+
+  <!-- ── footer ─────────────────────────────────────────────── -->
+  <text x="60" y="540" font-size="11.5" fill="#64748b"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">Arrows read downward: a module may import only from the layers below it. The graph was verified acyclic by parsing every module with <tspan font-weight="600" fill="#475569">ast</tspan>.</text>
+  <text x="60" y="562" font-size="11.5" fill="#64748b"
+        font-family="'Segoe UI', system-ui, Arial, sans-serif">The upload gate opens no file at all: it consumes the JSON reports the other checkers emitted, and a missing report blocks the upload just as hard as a failed one.</text>
+</svg>
